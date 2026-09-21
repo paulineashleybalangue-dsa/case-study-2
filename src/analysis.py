@@ -16,3 +16,22 @@ class CustomsAnalyzer:
         self.measure_column = measure_column
         self.processed_chunks: list[pd.DataFrame] = []
         self.audit_records: list[dict[str, object]] = []
+
+    def add_chunk(
+        self,
+        chunk: pd.DataFrame,
+        rows_before: int,
+        rows_after: int,
+    ) -> None:
+        """Store a processed chunk and record its audit information."""
+        self.processed_chunks.append(chunk)
+
+        self.audit_records.append(
+            {
+                "step": f"chunk_{len(self.processed_chunks)}",
+                "operation": "filter_and_prepare",
+                "rule": "tq not missing and dutiablevaluephp > minimum",
+                "rows_before": rows_before,
+                "rows_after": rows_after,
+            }
+        )
