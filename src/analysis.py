@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 
 class CustomsAnalyzer:
-    """Analyze processed Philippine Customs data."""
+    """Analyze Philippine Customs 2015 data."""
 
     def __init__(
         self,
@@ -11,11 +11,14 @@ class CustomsAnalyzer:
         group_columns: list[str],
         measure_column: str,
     ) -> None:
+        """Initialize the analyzer configuration."""
+
         self.output_dir = output_dir
         self.group_columns = group_columns
         self.measure_column = measure_column
+
         self.processed_chunks: list[pd.DataFrame] = []
-        self.audit_records: list[dict[str, object]] = []
+        self.audit_records: list[dict] = []
 
     def add_chunk(
         self,
@@ -24,22 +27,28 @@ class CustomsAnalyzer:
         rows_after: int,
     ) -> None:
         """Store a processed chunk and record its audit information."""
+
         self.processed_chunks.append(chunk)
 
         self.audit_records.append(
             {
-                "step": f"chunk_{len(self.processed_chunks)}",
-                "operation": "filter_and_prepare",
-                "rule": "tq not missing and dutiablevaluephp > minimum",
+                "step": "filter",
+                "operation": "Apply two-condition filter",
+                "rule": (
+                    "tq is not missing AND "
+                    "dutiablevaluephp > 0"
+                ),
                 "rows_before": rows_before,
                 "rows_after": rows_after,
             }
         )
 
+
     def combine_chunks(self) -> pd.DataFrame:
         """Combine all processed chunks into one DataFrame."""
+
         if not self.processed_chunks:
-            return pd.DataFrame()
+            raise ValueError("No processed data available.")
 
         return pd.concat(
             self.processed_chunks,
@@ -50,15 +59,18 @@ class CustomsAnalyzer:
         self,
         data: pd.DataFrame,
     ) -> pd.DataFrame:
-        """Create a grouped summary using counts and total value."""
+        """Create the summary grouped by country of origin."""
+
         grouped = (
             data.groupby(
-                self.group_columns,
+                self.group_columns[0],
                 dropna=False,
             )[self.measure_column]
             .agg(
-                record_count="count",
-                total_value_php="sum",
+                row_count="size",
+                valid_measure_count="count",
+                measure_sum="sum",
+                measure_mean="mean",
             )
             .reset_index()
         )
@@ -69,17 +81,36 @@ class CustomsAnalyzer:
         self,
         data: pd.DataFrame,
     ) -> pd.DataFrame:
-        """Create a summary using the two configured grouping columns."""
-        grouped = (
+        """Create the summary grouped by country and quarter."""
+
+        grouped_two = (
             data.groupby(
                 self.group_columns,
                 dropna=False,
             )[self.measure_column]
             .agg(
-                record_count="count",
-                total_value_php="sum",
+                row_count="size",
+                measure_sum="sum",
             )
             .reset_index()
         )
 
-        return grouped
+        return grouped_two
+
+
+    def create_pivot(
+        self,
+        grouped_two: pd.DataFrame,
+    ) -> pd.DataFrame:
+        """Create a country-by-quarter measure-sum pivot table."""
+
+        pivot = grouped_two.pivot_table(
+            index=self.group_columns[0],
+            columns=self.group_columns[1],
+            values="measure_sum",
+            aggfunc="sum",
+            margins=True,
+            margins_name="Total",
+        )
+
+        return pivot.reset_index()
