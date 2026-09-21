@@ -42,6 +42,12 @@ def main() -> None:
             rows_after,
         )
 
+    data = analyzer.combine_chunks()
+    grouped = analyzer.create_grouped_summary(data)
+    grouped_two = analyzer.create_two_category_summary(data)    
+    pivot = analyzer.create_pivot(grouped_two)
+    top10 = analyzer.create_top10(grouped)
+
 
 if __name__ == "__main__":
     main()
