@@ -45,3 +45,22 @@ class CustomsAnalyzer:
             self.processed_chunks,
             ignore_index=True,
         )
+
+    def create_grouped_summary(
+        self,
+        data: pd.DataFrame,
+    ) -> pd.DataFrame:
+        """Create a grouped summary using counts and total value."""
+        grouped = (
+            data.groupby(
+                self.group_columns,
+                dropna=False,
+            )[self.measure_column]
+            .agg(
+                record_count="count",
+                total_value_php="sum",
+            )
+            .reset_index()
+        )
+
+        return grouped
