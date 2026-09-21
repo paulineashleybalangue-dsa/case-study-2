@@ -18,7 +18,7 @@ class CustomsAnalyzer:
         self.measure_column = measure_column
 
         self.processed_chunks: list[pd.DataFrame] = []
-        self.audit_records: list[dict] = []
+        self.audit_records: list[dict[str, object]] = []
 
     def add_chunk(
         self,
