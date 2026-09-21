@@ -35,3 +35,13 @@ class CustomsAnalyzer:
                 "rows_after": rows_after,
             }
         )
+
+    def combine_chunks(self) -> pd.DataFrame:
+        """Combine all processed chunks into one DataFrame."""
+        if not self.processed_chunks:
+            return pd.DataFrame()
+
+        return pd.concat(
+            self.processed_chunks,
+            ignore_index=True,
+        )
