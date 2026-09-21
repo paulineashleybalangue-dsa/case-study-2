@@ -61,3 +61,13 @@ def prepare_chunk(
     )
 
     selected = data.loc[mask].copy()
+
+    selected["countryorigin_iso3"] = (
+        selected["countryorigin_iso3"]
+        .fillna("Missing")
+        .astype(str)
+    )
+
+    selected["dutiablevalue_million_php"] = (
+        selected["dutiablevaluephp"] / 1_000_000
+    )
