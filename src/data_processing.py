@@ -71,3 +71,14 @@ def prepare_chunk(
     selected["dutiablevalue_million_php"] = (
         selected["dutiablevaluephp"] / 1_000_000
     )
+
+    selected["value_band"] = (
+        selected["dutiablevalue_million_php"]
+        .ge(high_value_threshold)
+        .map({
+            True: "High",
+            False: "Standard",
+        })
+    )
+
+    return selected
