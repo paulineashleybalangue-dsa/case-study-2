@@ -64,3 +64,22 @@ class CustomsAnalyzer:
         )
 
         return grouped
+
+    def create_two_category_summary(
+        self,
+        data: pd.DataFrame,
+    ) -> pd.DataFrame:
+        """Create a summary using the two configured grouping columns."""
+        grouped = (
+            data.groupby(
+                self.group_columns,
+                dropna=False,
+            )[self.measure_column]
+            .agg(
+                record_count="count",
+                total_value_php="sum",
+            )
+            .reset_index()
+        )
+
+        return grouped
