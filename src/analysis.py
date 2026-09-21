@@ -114,3 +114,18 @@ class CustomsAnalyzer:
         )
 
         return pivot.reset_index()
+
+    def create_top10(
+        self,
+        grouped: pd.DataFrame,
+    ) -> pd.DataFrame:
+        """Return the ten groups with the largest measure sum."""
+
+        return (
+            grouped.sort_values(
+                "measure_sum",
+                ascending=False,
+            )
+            .head(10)
+            .reset_index(drop=True)
+        )
