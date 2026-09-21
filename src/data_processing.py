@@ -40,3 +40,24 @@ def load_csv_chunks(
         chunksize=chunksize,
         encoding="cp1252",
     )
+
+def prepare_chunk(
+    chunk: pd.DataFrame,
+    minimum_value: float = 0,
+    high_value_threshold: float = 100,
+) -> pd.DataFrame:
+    """Filter a chunk and create the required derived columns."""
+
+    data = chunk.copy()
+
+    data["dutiablevaluephp"] = pd.to_numeric(
+        data["dutiablevaluephp"],
+        errors="coerce",
+    )
+
+    mask = (
+        data["tq"].notna()
+        & (data["dutiablevaluephp"] > minimum_value)
+    )
+
+    selected = data.loc[mask].copy()
