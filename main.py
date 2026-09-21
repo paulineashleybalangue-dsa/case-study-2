@@ -53,6 +53,8 @@ def main() -> None:
     pivot.to_csv(output_dir / "pivot.csv", index=False)
     top10.to_csv(output_dir / "top10.csv", index=False)
 
+    print()
+    print("Summary tables created successfully.")
 
 if __name__ == "__main__":
     main()
