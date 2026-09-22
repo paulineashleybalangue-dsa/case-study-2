@@ -2,6 +2,7 @@ from config import CONFIG, REQUIRED_COLUMNS
 from src.data_processing import load_csv_chunks, prepare_chunk
 from src.analysis import CustomsAnalyzer
 from src.numpy_analysis import run_numpy_comparison
+from src.visualization import create_bar_plot, create_heatmap
 from src.validation import (
     validate_grouped_summary,
     validate_pivot,
@@ -89,6 +90,16 @@ def main() -> None:
     save_validation_results(
         validation_results,
         output_dir / "validation.csv",
+    )
+
+    create_bar_plot(
+        top10,
+        output_dir / "bar.png",
+    )
+
+    create_heatmap(
+        pivot,
+        output_dir / "heatmap.png",
     )
 
     # Save summary tables
