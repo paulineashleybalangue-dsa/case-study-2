@@ -67,3 +67,24 @@ def run_numpy_comparison(
         start = time.perf_counter()
         calculate_vectorized(sample)
         vectorized_times.append(time.perf_counter() - start)
+
+    results = pd.DataFrame(
+        {
+            "method": [
+                "Python loop",
+                "NumPy vectorized",
+            ],
+            "result": [
+                loop_result,
+                vectorized_result,
+            ],
+            "median_time_seconds": [
+                np.median(loop_times),
+                np.median(vectorized_times),
+            ],
+        }
+    )
+
+    results.attrs["numpy_equal"] = numpy_equal
+
+    return results
