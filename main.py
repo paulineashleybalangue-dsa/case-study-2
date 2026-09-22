@@ -1,6 +1,12 @@
 from config import CONFIG, REQUIRED_COLUMNS
 from src.data_processing import load_csv_chunks, prepare_chunk
 from src.analysis import CustomsAnalyzer
+from src.validation import (
+    validate_grouped_summary,
+    validate_pivot,
+    create_validation_results,
+    save_validation_results,
+)
 
 def main() -> None:
     """Run the Philippine Customs data analysis."""
