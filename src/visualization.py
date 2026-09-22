@@ -85,3 +85,13 @@ def create_heatmap(
 
     plt.xlabel("Quarter")
     plt.ylabel("Country of Origin")
+
+    plt.tight_layout()
+
+    plt.savefig(
+        output_path,
+        dpi=300,
+        bbox_inches="tight",
+    )
+
+    plt.close()
