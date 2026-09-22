@@ -86,5 +86,42 @@ def validate_selected_data(
 
     return checks
 
+def validate_grouped_summary(
+    selected_data: pd.DataFrame,
+    grouped: pd.DataFrame,
+    grouped_two: pd.DataFrame,
+    measure_column: str = "dutiablevaluephp",
+    tolerance: float = 1,
+) -> list[dict[str, object]]:
+    """Validate grouped summaries against independently calculated totals."""
 
+    selected_row_count = len(selected_data)
+    selected_measure_sum = selected_data[measure_column].sum()
+
+    grouped_row_count = grouped["row_count"].sum()
+    grouped_measure_sum = grouped["measure_sum"].sum()
+
+    grouped_two_measure_sum = grouped_two["measure_sum"].sum()
+
+    checks = [
+        create_validation_check(
+            "grouped row counts",
+            selected_row_count,
+            grouped_row_count,
+        ),
+        create_validation_check(
+            "grouped measure sum",
+            selected_measure_sum,
+            grouped_measure_sum,
+            tolerance,
+        ),
+        create_validation_check(
+            "grouped_two measure sum",
+            selected_measure_sum,
+            grouped_two_measure_sum,
+            tolerance,
+        ),
+    ]
+
+    return checks
 
