@@ -56,3 +56,35 @@ def save_validation_results(
         raise SystemExit(1)
 
     print("All validation checks passed.")
+
+def validate_selected_data(
+    data: pd.DataFrame,
+    expected_rows: int,
+    expected_measure_sum: float,
+    measure_column: str = "dutiablevaluephp",
+    tolerance: float = 1,
+) -> list[dict[str, object]]:
+    
+    """Validate the selected row count and measure sum."""
+
+    actual_rows = len(data)
+    actual_measure_sum = data[measure_column].sum()
+
+    checks = [
+        create_validation_check(
+            "selected row count",
+            expected_rows,
+            actual_rows,
+        ),
+        create_validation_check(
+            "selected measure sum",
+            expected_measure_sum,
+            actual_measure_sum,
+            tolerance,
+        ),
+    ]
+
+    return checks
+
+
+
