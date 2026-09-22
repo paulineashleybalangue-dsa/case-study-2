@@ -69,3 +69,19 @@ def create_heatmap(
     plt.figure(
         figsize=(12, max(8, len(heatmap_data) * 0.2))
     )
+
+    sns.heatmap(
+        heatmap_data,
+        cmap="YlGnBu",
+        linewidths=0.2,
+        cbar_kws={
+            "label": "Total Dutiable Value (PHP)"
+        },
+    )
+
+    plt.title(
+        "Dutiable Value by Country of Origin and Quarter"
+    )
+
+    plt.xlabel("Quarter")
+    plt.ylabel("Country of Origin")
