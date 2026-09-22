@@ -54,6 +54,31 @@ def main() -> None:
     pivot = analyzer.create_pivot(grouped_two)
     top10 = analyzer.create_top10(grouped)
 
+    validation_checks = []
+    validation_checks.extend(
+        validate_grouped_summary(
+            data,
+            grouped,
+            grouped_two,
+        )
+    )
+
+    validation_checks.extend(
+        validate_pivot(
+            data,
+            pivot,
+        )
+    )
+
+    validation_results = create_validation_results(
+        validation_checks
+    )
+
+    save_validation_results(
+        validation_results,
+        output_dir / "validation.csv",
+    )
+
     grouped.to_csv(output_dir / "grouped.csv", index=False)
     grouped_two.to_csv(output_dir / "grouped_two.csv", index=False)
     pivot.to_csv(output_dir / "pivot.csv", index=False)
