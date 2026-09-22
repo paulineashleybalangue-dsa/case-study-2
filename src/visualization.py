@@ -43,3 +43,25 @@ def create_bar_plot(
     )
 
     plt.close()
+
+def create_heatmap(
+    pivot: pd.DataFrame,
+    output_path: Path,
+) -> None:
+    """Create a heatmap of dutiable value by country and quarter."""
+
+    heatmap_data = pivot.set_index(
+        "countryorigin_iso3"
+    )
+
+    # Remove the Total column so margins are not plotted.
+    if "Total" in heatmap_data.columns:
+        heatmap_data = heatmap_data.drop(
+            columns=["Total"]
+        )
+
+    # Remove the Total row if present.
+    if "Total" in heatmap_data.index:
+        heatmap_data = heatmap_data.drop(
+            index=["Total"]
+        )
