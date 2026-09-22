@@ -3,7 +3,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 
 CONFIG = {
-    "input_path": BASE_DIR / "data" / "Philippine Customs BetterGov.PH 2015.csv",
+    "input_path": BASE_DIR / "data" / "2015.csv",
     "output_dir": BASE_DIR / "output",
     "chunksize": 100_000,
     "minimum_dutiable_value_php": 0,

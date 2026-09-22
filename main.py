@@ -10,7 +10,6 @@ from src.validation import (
 
 def main() -> None:
     """Run the Philippine Customs data analysis."""
-
     output_dir = CONFIG["output_dir"]
     output_dir.mkdir(parents=True, exist_ok=True)
 
