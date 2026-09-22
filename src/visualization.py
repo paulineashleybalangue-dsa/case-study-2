@@ -65,3 +65,7 @@ def create_heatmap(
         heatmap_data = heatmap_data.drop(
             index=["Total"]
         )
+
+    plt.figure(
+        figsize=(12, max(8, len(heatmap_data) * 0.2))
+    )
