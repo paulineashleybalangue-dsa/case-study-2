@@ -129,3 +129,16 @@ class CustomsAnalyzer:
             .head(10)
             .reset_index(drop=True)
         )
+
+    def save_audit_log(
+        self,
+        output_path: Path,
+    ) -> None:
+        """Save audit records to a CSV file."""
+
+        audit_log = pd.DataFrame(self.audit_records)
+
+        audit_log.to_csv(
+            output_path,
+            index=False,
+        )
