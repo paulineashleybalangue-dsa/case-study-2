@@ -12,3 +12,8 @@ def calculate_loop(values: np.ndarray) -> float:
         total += value * 1.10
 
     return total
+
+def calculate_vectorized(values: np.ndarray) -> float:
+    """Calculate the total using NumPy vectorization."""
+
+    return np.sum(values * 1.10)
