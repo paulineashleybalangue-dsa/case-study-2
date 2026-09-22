@@ -55,3 +55,15 @@ def run_numpy_comparison(
         raise ValueError(
             "Loop and vectorized calculations do not agree."
         )
+
+    loop_times = []
+    vectorized_times = []
+
+    for _ in range(runs):
+        start = time.perf_counter()
+        calculate_loop(sample)
+        loop_times.append(time.perf_counter() - start)
+
+        start = time.perf_counter()
+        calculate_vectorized(sample)
+        vectorized_times.append(time.perf_counter() - start)
