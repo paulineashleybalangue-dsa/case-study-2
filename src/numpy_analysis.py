@@ -40,3 +40,18 @@ def run_numpy_comparison(
 
     positive_mask = sample > 0
     sample = sample[positive_mask]
+
+    loop_result = calculate_loop(sample)
+    vectorized_result = calculate_vectorized(sample)
+
+    numpy_equal = bool(
+        np.isclose(
+            loop_result,
+            vectorized_result,
+        )
+    )
+
+    if not numpy_equal:
+        raise ValueError(
+            "Loop and vectorized calculations do not agree."
+        )
