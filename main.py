@@ -78,6 +78,10 @@ def main() -> None:
         output_dir / "validation.csv",
     )
 
+    analyzer.save_audit_log(
+        output_dir / "audit_log.csv"
+    )
+
     grouped.to_csv(output_dir / "grouped.csv", index=False)
     grouped_two.to_csv(output_dir / "grouped_two.csv", index=False)
     pivot.to_csv(output_dir / "pivot.csv", index=False)
@@ -88,3 +92,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
