@@ -125,3 +125,37 @@ def validate_grouped_summary(
 
     return checks
 
+def validate_pivot(
+    selected_data: pd.DataFrame,
+    pivot: pd.DataFrame,
+    measure_column: str = "dutiablevaluephp",
+    tolerance: float = 1,
+) -> list[dict[str, object]]:
+    """Validate the pivot interior total against selected data."""
+
+    selected_measure_sum = selected_data[measure_column].sum()
+
+    pivot_data = pivot.loc[
+        pivot[pivot.columns[0]] != "Total"
+    ].copy()
+
+    value_columns = [
+        column
+        for column in pivot_data.columns[1:]
+        if column != "Total"
+    ]
+
+    pivot_measure_sum = (
+        pivot_data[value_columns]
+        .sum()
+        .sum()
+    )
+
+    return [
+        create_validation_check(
+            "pivot interior measure sum",
+            selected_measure_sum,
+            pivot_measure_sum,
+            tolerance,
+        )
+    ]
