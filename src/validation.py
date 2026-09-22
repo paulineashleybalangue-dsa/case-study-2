@@ -40,3 +40,19 @@ def create_validation_results(
         ],
     )
 
+def save_validation_results(
+    results: pd.DataFrame,
+    output_path: Path,
+) -> None:
+    """Save validation results and stop if any check fails."""
+
+    results.to_csv(output_path, index=False)
+
+    failed = results.loc[~results["pass"]]
+
+    if not failed.empty:
+        print("VALIDATION FAILED")
+        print(failed.to_string(index=False))
+        raise SystemExit(1)
+
+    print("All validation checks passed.")
