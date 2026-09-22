@@ -1,10 +1,15 @@
 from config import CONFIG, REQUIRED_COLUMNS
 from src.data_processing import load_csv_chunks, prepare_chunk
 from src.analysis import CustomsAnalyzer
+from src.validation import (
+    validate_grouped_summary,
+    validate_pivot,
+    create_validation_results,
+    save_validation_results,
+)
 
 def main() -> None:
     """Run the Philippine Customs data analysis."""
-
     output_dir = CONFIG["output_dir"]
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -48,6 +53,35 @@ def main() -> None:
     pivot = analyzer.create_pivot(grouped_two)
     top10 = analyzer.create_top10(grouped)
 
+    validation_checks = []
+    validation_checks.extend(
+        validate_grouped_summary(
+            data,
+            grouped,
+            grouped_two,
+        )
+    )
+
+    validation_checks.extend(
+        validate_pivot(
+            data,
+            pivot,
+        )
+    )
+
+    validation_results = create_validation_results(
+        validation_checks
+    )
+
+    save_validation_results(
+        validation_results,
+        output_dir / "validation.csv",
+    )
+
+    analyzer.save_audit_log(
+        output_dir / "audit_log.csv"
+    )
+
     grouped.to_csv(output_dir / "grouped.csv", index=False)
     grouped_two.to_csv(output_dir / "grouped_two.csv", index=False)
     pivot.to_csv(output_dir / "pivot.csv", index=False)
@@ -58,3 +92,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

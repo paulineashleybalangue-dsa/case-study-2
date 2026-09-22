@@ -1,0 +1,5 @@
+check,expected,actual,tolerance,pass
+grouped row counts,2236612,2236612.0,0,True
+grouped measure sum,3587267375257,3587267375257.0,1,True
+grouped_two measure sum,3587267375257,3587267375257.0,1,True
+pivot interior measure sum,3587267375257,3587267375257.0,1,True
