@@ -1,0 +1,10 @@
+# Case Study 2 Submission Manifest
+
+### Repository URL:
+https://github.com/paulineashleybalangue-dsa/case-study-2.git
+
+### Release Tag:
+v1.0.0 
+
+### Final Commit Hash:
+0834a711a75cb9f95f76c70492999f56b165acf3
