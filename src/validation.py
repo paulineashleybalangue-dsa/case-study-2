@@ -159,3 +159,67 @@ def validate_pivot(
             tolerance,
         )
     ]
+def validate_raw_data(
+    raw_rows: int,
+    selected_rows: int,
+    excluded_rows: int,
+    raw_measure_sum: float,
+) -> list[dict[str, object]]:
+    """Check raw Customs totals and row reconciliation."""
+
+    return [
+        create_validation_check(
+            "raw row count vs 2015 reference",
+            2_236_612,
+            raw_rows,
+        ),
+        create_validation_check(
+            "raw measure sum vs 2015 reference",
+            3_587_267_375_257,
+            raw_measure_sum,
+            tolerance=1.0,
+        ),
+        create_validation_check(
+            "raw rows = selected rows + excluded rows",
+            raw_rows,
+            selected_rows + excluded_rows,
+        ),
+    ]
+def validate_plot_values(
+    top10: pd.DataFrame,
+    bar_values: pd.DataFrame,
+    pivot: pd.DataFrame,
+    heatmap_values: pd.DataFrame,
+) -> list[dict[str, object]]:
+    """Check values supplied to charts against their summaries."""
+    expected_bar = top10.sort_values(
+        "measure_sum", ascending=True
+    ).reset_index(drop=True)
+
+
+    bar_matches = expected_bar[
+        ["countryorigin_iso3", "measure_sum"]
+    ].equals(
+        bar_values[
+            ["countryorigin_iso3", "measure_sum"]
+        ].reset_index(drop=True)
+    )
+
+
+    expected_heatmap = pivot.set_index("countryorigin_iso3")
+    expected_heatmap = expected_heatmap.drop(
+        index="Total", errors="ignore"
+    ).drop(
+        columns="Total", errors="ignore"
+    )
+    heatmap_matches = expected_heatmap.equals(heatmap_values)
+
+
+    return [
+        create_validation_check(
+            "bar plot values match top10", True, bar_matches,
+        ),
+        create_validation_check(
+            "heatmap values match pivot interior", True, heatmap_matches,
+        ),
+    ]

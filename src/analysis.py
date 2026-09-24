@@ -129,6 +129,25 @@ class CustomsAnalyzer:
             .head(10)
             .reset_index(drop=True)
         )
+    def record_operation(
+        self,
+        step: str,
+        operation: str,
+        rule: str,
+        rows_before: int,
+        rows_after: int,
+    ) -> None:
+        """Add one completed operation to the audit log."""
+
+        self.audit_records.append(
+            {
+                "step": step,
+                "operation": operation,
+                "rule": rule,
+                "rows_before": rows_before,
+                "rows_after": rows_after,
+            }
+        )
 
     def save_audit_log(
         self,

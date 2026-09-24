@@ -3,4 +3,4 @@ venv/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-.vscode/data/2015.csv
+data/2015.csv

@@ -1,24 +1,151 @@
 step,operation,rule,rows_before,rows_after
+load,Load chunk 1,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 2,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 3,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 4,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 5,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 6,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 7,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 8,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 9,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 10,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 11,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 12,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 13,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 14,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 15,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 16,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 17,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 18,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 19,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 20,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 21,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 22,Read the original CSV without modifying it,100000,100000
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,100000,100000
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,100000,100000
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,100000,100000
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,100000,100000
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,100000,100000
+load,Load chunk 23,Read the original CSV without modifying it,36612,36612
+inspect,Inspect numerical values,Convert values to numeric for inspection; invalid values become NaN,36612,36612
 filter,Apply two-condition filter,tq is not missing AND dutiablevaluephp > 0,36612,36612
+clean,Prepare selected records,Convert measure to numeric; fill missing country with Missing,36612,36612
+derive,Create numerical column,dutiablevalue_million_php = dutiablevaluephp / 1000000,36612,36612
+derive,Create value band,High when million-PHP value >= 100; otherwise Standard,36612,36612
+summarize,Group by country,"Calculate row count, valid count, sum, and mean",2236612,197
+summarize,Group by country and tq,Calculate row count and measure sum,2236612,628
+summarize,Create pivot,Pivot grouped sums; output row count includes Total row,628,198
+summarize,Select top 10,Sort country sums descending; keep up to 10 groups,197,10
+output,Save grouped.csv,File saved; counts refer to table rows or plotted data rows,197,197
+output,Save grouped_two.csv,File saved; counts refer to table rows or plotted data rows,628,628
+output,Save pivot.csv,File saved; counts refer to table rows or plotted data rows,198,198
+output,Save top10.csv,File saved; counts refer to table rows or plotted data rows,10,10
+output,Save numpy_comparison.csv,File saved; counts refer to table rows or plotted data rows,2,2
+output,Save validation.csv,File saved; counts refer to table rows or plotted data rows,10,10
+output,Save bar.png,File saved; counts refer to table rows or plotted data rows,10,10
+output,Save heatmap.png,File saved; counts refer to table rows or plotted data rows,197,197

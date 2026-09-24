@@ -1,5 +1,11 @@
 check,expected,actual,tolerance,pass
-grouped row counts,2236612,2236612.0,0,True
-grouped measure sum,3587267375257,3587267375257.0,1,True
-grouped_two measure sum,3587267375257,3587267375257.0,1,True
-pivot interior measure sum,3587267375257,3587267375257.0,1,True
+raw row count vs 2015 reference,2236612,2236612,0.0,True
+raw measure sum vs 2015 reference,3587267375257,3587267375257.0,1.0,True
+raw rows = selected rows + excluded rows,2236612,2236612,0.0,True
+grouped row counts,2236612,2236612,0.0,True
+grouped measure sum,3587267375257,3587267375257,1.0,True
+grouped_two measure sum,3587267375257,3587267375257,1.0,True
+pivot interior measure sum,3587267375257,3587267375257.0,1.0,True
+bar plot values match top10,True,True,0.0,True
+heatmap values match pivot interior,True,True,0.0,True
+loop and NumPy results agree,16274765862.300007,16274765862.3,0.01,True
