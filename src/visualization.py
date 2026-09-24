@@ -7,7 +7,7 @@ import seaborn as sns
 def create_bar_plot(
     top10: pd.DataFrame,
     output_path: Path,
-) -> None:
+) -> pd.DataFrame:
     """Create a bar chart showing the top groups by total dutiable value."""
 
     plot_data = top10.sort_values(
@@ -43,11 +43,12 @@ def create_bar_plot(
     )
 
     plt.close()
+    return plot_data
 
 def create_heatmap(
     pivot: pd.DataFrame,
     output_path: Path,
-) -> None:
+) -> pd.DataFrame:
     """Create a heatmap of dutiable value by country and quarter."""
 
     heatmap_data = pivot.set_index(
@@ -95,3 +96,4 @@ def create_heatmap(
     )
 
     plt.close()
+    return heatmap_data
