@@ -4,7 +4,7 @@
 https://github.com/paulineashleybalangue-dsa/case-study-2.git
 
 ### Release Tag:
-v1.0.0 
+week6-v1.0
 
 ### Final Commit Hash:
-46cf28e2814ddaa8d0fbe190f5a983c770e91fb2
+79accf70e2b2ec867a5a91974e45991bacd742b3
