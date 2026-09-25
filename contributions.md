@@ -64,7 +64,7 @@ Updated the README and contributions documentation for the final submission.
 
 ## 6. Coleen Dian Fernandez
 **Task:** Documentation, Project Setup, & Final Fixes  
-**Function/Method:** **Function/Method:** Updated `main()` to track raw, selected, and excluded rows; run the expanded validation checks; and record processing operations. Added `record_operation()` to `CustomsAnalyzer`, added `validate_raw_data()` and `validate_plot_values()`, and updated the plotting functions to return the values used in the charts.
+**Function/Method:** Updated `main()` to track raw, selected, and excluded rows; run the expanded validation checks; and record processing operations. Added `record_operation()` to `CustomsAnalyzer`, added `validate_raw_data()` and `validate_plot_values()`, and updated the plotting functions to return the values used in the charts.
 
 **Representative commits:** `de18a6b643aa1045ade114a1c799ccd543a96d9c`
 
