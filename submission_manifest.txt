@@ -7,4 +7,4 @@ https://github.com/paulineashleybalangue-dsa/case-study-2.git
 week6-v1.0
 
 ### Final Commit Hash:
-79accf70e2b2ec867a5a91974e45991bacd742b3
+218d6961ef057169e847f371e44b97493fb0da6a
