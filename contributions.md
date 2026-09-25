@@ -34,11 +34,11 @@ Updated the README and contributions documentation for the final submission.
 
 **Pull Request:** https://github.com/paulineashleybalangue-dsa/case-study-2/pull/3  
 
-**Final update commit:** [Add the commit hash for your new edits.] 
+**Final update commit:** `8d224906ba7986ea4573acc10c03e2f453f6d8fc`
 
 **Reviewed by:** Pauline Ashley Balangue
 
-**Pull Request:** [Add the new PR link after you create it.]
+**Pull Request:** https://github.com/paulineashleybalangue-dsa/case-study-2/pull/8
 
 ## 4. Mikaela Stefanie Tilo
 **Task:** Data Visualization & Main Program Integration  
